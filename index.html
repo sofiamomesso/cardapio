@@ -1,0 +1,292 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurante Bananesas</title>
+    <link rel="stylesheet" href="style.css">
+    <style>
+        /* Produtos organizados em fileiras com layout em grid */
+        .produtos {
+            list-style: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            margin: 1rem auto;
+            text-align: center;
+        }
+
+        /* Cada produto em destaque */
+        .produtos li {
+            background: #fff;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            padding: 15px;
+            transition: transform 0.3s, box-shadow 0.3s;
+        }
+
+        .produtos li:hover {
+            transform: scale(1.05);
+            box-shadow: 0 6px 10px rgba(0, 0, 0, 0.15);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="banner">
+        <img src="./logo.jpg" alt="Logo Restaurante Bananesas" class="logo">
+        Restaurante Bananesas
+    </div>
+
+    <!-- Promoção -->
+    <div class="promo">
+        <h1>Super Promoção de Pratos!</h1>
+        <p>Descubra o sabor irresistível dos nossos pratos com descontos imperdíveis!</p>
+        <ul>
+            <li>Delicie-se com nossos <strong>Pratos Quentes</strong> e sinta o aconchego de uma refeição feita com carinho.</li>
+            <li>Aproveite a variedade dos <strong>Pratos Frios</strong> e refresque seu paladar.</li>
+            <li>Experimente os <strong>Pratos Especiais</strong> e surpreenda-se com combinações únicas.</li>
+        </ul>
+        <p>Não perca tempo! Confira nosso cardápio completo e faça seu pedido agora mesmo.</p>
+        <a href="#pratos-quentes" class="btn">Veja o Cardápio</a>
+    </div>
+
+    <!-- Carrinho no canto superior -->
+    <div id="cart-summary">
+        <p><strong>Carrinho:</strong> <span id="cart-total">R$0,00</span></p>
+        <p><strong>Porcentagem do Orçamento:</strong> <span id="budget-percentage">0%</span></p>
+        <ul id="cart-items"></ul>
+        <button id="checkout">Finalizar Compra</button>
+    </div>
+
+    <!-- Barra de Navegação por Categoria -->
+    <nav class="category-bar">
+        <ul>
+            <li><a href="#pratos-quentes">Pratos Quentes</a></li>
+            <li><a href="#pratos-frios">Pratos Frios</a></li>
+            <li><a href="#tipos-bebidas">Tipos de Bebidas</a></li>
+            <li><a href="#sobremesas">Sobremesas</a></li>
+            <li><a href="#entradas">Entradas</a></li>
+            <li><a href="#saladas">Saladas</a></li>
+            <li><a href="#petiscos">Petiscos</a></li>
+            <li><a href="#destaques">Pratos Especiais</a></li>
+            <li><a href="#carnes">Pratos por Tipo de Carne</a></li>
+        </ul>
+    </nav>
+
+    <h1>Bem-vindo ao Cardápio</h1>
+    <p>Escolha a categoria desejada para conferir as opções disponíveis.</p>
+
+    <!-- Seção de Categorias com Produtos -->
+    <section class="categorias">
+        <!-- Pratos Quentes -->
+        <div id="pratos-quentes" class="categoria">
+            <h2>Pratos Quentes</h2>
+            <ul class="produtos">
+                <li data-price="25">
+                    <img src="./main-header.avif" alt="Strogonoff de Frango" class="produto-img">
+                    Strogonoff de Frango - R$25,00
+                </li>
+                <li data-price="30">
+                    <img src="./iStock-1371304605.webp" alt="Bife à Parmegiana" class="produto-img">
+                    Bife à Parmegiana - R$30,00
+                </li>
+                <li data-price="28">
+                    <img src="./SSP_2857-Peixe-grelhado-com-tomilho-e-alho-1.jpg" alt="Peixe Grelhado" class="produto-img">
+                    Peixe Grelhado - R$28,00
+                </li>
+                <li data-price="26">
+                    <img src="./risoto.png" alt="Risoto de Cogumelos" class="produto-img">
+                    Risoto de Cogumelos - R$26,00
+                </li>
+            </ul>
+        </div>
+
+        <!-- Pratos Frios -->
+        <div id="pratos-frios" class="categoria">
+            <h2>Pratos Frios</h2>
+            <ul class="produtos">
+                <li data-price="12">
+                    <img src="./326223-original.jpg" alt="Bruschetta" class="produto-img">
+                    Bruschetta - R$12,00
+                </li>
+                <li data-price="15">
+                    <img src="./salada-caprese.webp" alt="Salada Caprese" class="produto-img">
+                    Salada Caprese - R$15,00
+                </li>
+                <li data-price="10">
+                    <img src="./pastel-de-forno-6.jpeg" alt="Pastel de Forno" class="produto-img">
+                    Pastel de Forno - R$10,00
+                </li>
+                <li data-price="14">
+                    <img src="./download.webp" alt="Calabresa Acebolada" class="produto-img">
+                    Calabresa Acebolada - R$14,00
+                </li>
+            </ul>
+        </div>
+
+        <!-- Tipos de Bebidas -->
+        <div id="tipos-bebidas" class="categoria">
+            <h2>Tipos de Bebidas</h2>
+            <ul class="produtos">
+                <li data-price="8">
+                    <img src="./31617293018_896bf29d55_k.webp" alt="Suco de Laranja" class="produto-img">
+                    Suco de Laranja - R$8,00
+                </li>
+                <li data-price="6">
+                    <img src="./COCA COLA.jpg" alt="Refrigerante" class="produto-img">
+                    Refrigerante - R$6,00
+                </li>
+                <li data-price="7">
+                    <img src="./COCO.avif" alt="Água de Coco" class="produto-img">
+                    Água de Coco - R$7,00
+                </li>
+                <li data-price="9">
+                    <img src="./CHA.webp" alt="Chá Gelado" class="produto-img">
+                    Chá Gelado - R$9,00
+                </li>
+            </ul>
+        </div>
+
+        <!-- Sobremesas -->
+        <div id="sobremesas" class="categoria">
+            <h2>Sobremesas</h2>
+            <ul class="produtos">
+                <li data-price="12">
+                    <img src="./PETTI.avif" alt="Petit Gateau" class="produto-img">
+                    Petit Gateau - R$12,00
+                </li>
+                <li data-price="10">
+                    <img src="./torta-de-limo.jpg" alt="Torta de Limão" class="produto-img">
+                    Torta de Limão - R$10,00
+                </li>
+                <li data-price="8">
+                    <img src="./sorvete.jpg" alt="Sorvete" class="produto-img">
+                    Sorvete - R$8,00
+                </li>
+                <li data-price="9">
+                    <img src="./mousse-maracuja-chocolate-copinho.jpg" alt="Mousse de Maracujá" class="produto-img">
+                    Mousse de Maracujá - R$9,00
+                </li>
+            </ul>
+        </div>
+
+        <!-- Entradas -->
+        <div id="entradas" class="categoria">
+            <h2>Entradas</h2>
+            <ul class="produtos">
+                <li data-price="10">
+                    <img src="./pao de alho.webp" alt="Pão de Alho" class="produto-img">
+                    Pão de Alho - R$10,00
+                </li>
+                <li data-price="12">
+                    <img src="./Mini-quiche-with-bacon-517864720.avif" alt="Mini Quiches" class="produto-img">
+                    Mini Quiches - R$12,00
+                </li>
+                <li data-price="15">
+                    <img src="./Tabua-de-Frios-1.jpg" alt="Tábua de Frios" class="produto-img">
+                    Tábua de Frios - R$15,00
+                </li>
+            </ul>
+        </div>
+
+        <!-- Saladas -->
+        <div id="saladas" class="categoria">
+            <h2>Saladas</h2>
+            <ul class="produtos">
+                <li data-price="18">
+                    <img src="./salada caeser.jpg" alt="Salada Caesar" class="produto-img">
+                    Salada Caesar - R$18,00
+                </li>
+                <li data-price="20">
+                    <img src="./Salada_de_trigo_mediterrânea (1).webp" alt="Salada Mediterrânea" class="produto-img">
+                    Salada Mediterrânea - R$20,00
+                </li>
+                <li data-price="16">
+                    <img src="./salada-tropical.jpg" alt="Salada Tropical" class="produto-img">
+                    Salada Tropical - R$16,00
+                </li>
+            </ul>
+        </div>
+
+        <!-- Petiscos -->
+        <div id="petiscos" class="categoria">
+            <h2>Petiscos</h2>
+            <ul class="produtos">
+                <li data-price="12">
+                    <img src="./BOLINHO.jpg" alt="Bolinho de Bacalhau" class="produto-img">
+                    Bolinho de Bacalhau - R$12,00
+                </li>
+                <li data-price="10">
+                    <img src="./coxinha-de-frango.jpg" alt="Coxinha de Frango" class="produto-img">
+                    Coxinha de Frango - R$10,00
+                </li>
+                <li data-price="14">
+                    <img src="./batata-frita-com-queijo.avif" alt="Batata Frita com Queijo" class="produto-img">
+                    Batata Frita com Queijo - R$14,00
+                </li>
+            </ul>
+        </div>
+
+        <!-- Pratos Especiais -->
+        <section id="destaques" class="categoria destaque">
+            <h2>Pratos Especiais</h2>
+            <ul class="produtos">
+                <li data-price="50" class="especial">
+                    <img src="./FILE VINHO.jpg" alt="Filé Mignon ao Molho de Vinho" class="produto-img">
+                    Filé Mignon ao Molho de Vinho - R$50,00
+                </li>
+                <li data-price="45" class="especial">
+                    <img src="./Salmao-assado-no-forno-freepik-780x520.jpg" alt="Salmão Grelhado com Ervas" class="produto-img">
+                    Salmão Grelhado com Ervas - R$45,00
+                </li>
+            </ul>
+        </section>
+
+        <!-- Pratos por Tipo de Carne -->
+        <section id="carnes" class="categoria">
+            <h2>Pratos por Tipo de Carne</h2>
+            <ul class="produtos">
+                <li data-price="35">
+                    <img src="./file-de-frango-grelhado-2.jpeg" alt="Filé de Frango Grelhado" class="produto-img">
+                    Filé de Frango Grelhado - R$35,00
+                </li>
+                <li data-price="40">
+                    <img src="./COSTELA.avif" alt="Costela ao Barbecue" class="produto-img">
+                    Costela ao Barbecue - R$40,00
+                </li>
+                <li data-price="38">
+                    <img src="./peixe-assado-legumes.jpg" alt="Peixe Assado com Legumes" class="produto-img">
+                    Peixe Assado com Legumes - R$38,00
+                </li>
+            </ul>
+        </section>
+
+        <!-- Considerações Adicionais -->
+        <section id="consideracoes" class="categoria">
+            <h2>Considerações Adicionais</h2>
+            <ul class="consideracoes">
+                <li>Garantimos que nossas refeições fornecem nutrientes essenciais, como proteínas, carboidratos, vitaminas e minerais.</li>
+                <li>Incluímos alimentos de diversos grupos alimentares para oferecer uma dieta equilibrada.</li>
+                <li>Aproveitamos ingredientes sazonais para garantir frescor e sabor em nossos pratos.</li>
+                <li>Nosso cardápio é planejado para se manter dentro de um orçamento acessível, sem comprometer a qualidade.</li>
+            </ul>
+        </section>
+
+        <!-- Informações de Contato, Taxa de Entrega e Endereço -->
+        <section id="informacoes" class="categoria">
+            <h2>Informações de Contato, Taxa de Entrega e Endereço</h2>
+            <p>
+                <strong>Telefone para Contato:</strong>
+                <a href="https://wa.me/5511987654321" target="_blank">Clique aqui para falar no WhatsApp</a>
+            </p>
+            <p><strong>Taxa de Entrega:</strong> R$5,00 para pedidos na região.</p>
+            <p><strong>Endereço:</strong> Rua Exemplo, 123 - Bairro Central, São Paulo - SP, CEP 01234-567</p>
+        </section>
+    </section>
+    <script src="script.js"></script>
+</body>
+
+</html>
